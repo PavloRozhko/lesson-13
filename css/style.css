@@ -1,0 +1,695 @@
+/* 
+to connect fonts at the end of the code add: &display=swap 
+font should be connected after reset.css and before styles
+*/
+@import "reset.css";
+@import url("https://fonts.googleapis.com/css?family=Oswald:600&display=swap");
+/* ========================================================================== */
+.wrapper {
+	overflow: hidden;
+	min-height: 100%;
+	position: relative;
+}
+.page-next {
+	font-family: Oswald, sans-serif;
+	font-weight: 600;
+	font-size: 24px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	color: #FFFF50;
+	text-align: center;
+}
+.button {
+	display: inline-block;
+	padding: 20px;
+	border: 2px solid #FFFF50;
+	border-radius: 5px;
+}
+.button:hover {
+	background-color: rgba(255, 255, 80, 0.1);
+	transform: scale(1.005);
+	transition: background-color 0.3s ease 0.2s;
+}
+[class*="__button"]::after {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(255, 255, 80, 0.4);
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 5px;
+}
+/* ================================Intro====================================== */
+.intro {
+	background: url(../img/intro/stars-bg.jpg) 0 0 / cover no-repeat;
+	min-height: 100vh;
+	perspective: 400px;
+	perspective-origin: 50% 50%;
+	position: relative;
+}
+.intro__image {
+	width: 600px;
+	height: 300px;
+	position: absolute;
+	left: 33.333%;
+	bottom: 33.333%;
+	transform: scale(3);
+	animation: intro-title 8s ease 0s 1 normal forwards;
+}
+.intro__image img {
+	max-width: 100%;
+}
+@keyframes intro-title {
+	0% {
+		transform: scale(3);
+	}
+	70% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(0);
+	}
+}
+.intro__text {
+	font-family: Oswald, sans-serif;
+	font-weight: 600;
+	font-size: 38px;
+	line-height: 1.5;
+	margin: 0 auto;
+	text-align: center;
+	color: #FFFF50;
+	position: absolute;
+	bottom: -1300px;
+	left: 0;
+	transform: rotateX(45deg);
+	animation: text-scroll 60s linear 7.5s 1 normal forwards;
+}
+.intro__text p:not(:last-child){
+	margin: 50px;
+}
+@keyframes text-scroll {
+	0%{
+		transform: rotateX(45deg);
+	}
+	1% {
+		transform: rotateX(45deg) translateY(1%) scale(1.3);
+	}
+	99%{
+		transform: rotateX(45deg) translateY(-160%) scale(1.3);
+	}
+	100%{
+	transform: scale(0);
+	}
+}
+.intro__next-page {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	max-width: 100%;
+	transform: translate(-20%, -50%);
+	overflow: hidden;
+	opacity: 0;
+	visibility: hidden;
+	animation: button-intro 3s linear 50s 1 normal forwards;
+}
+@keyframes button-intro {
+	0% {
+		visibility: visible;
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+.intro__button::after{
+	animation: button-bg-intro 1s linear 52.5s 1 normal forwards;
+}
+@keyframes button-bg-intro {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(100%, 0);
+	}
+}
+/* ================================Cantina====================================== */
+.cantina {
+	background: url(../img/cantina/cantina-hall.jpg) 0 0 / cover no-repeat;
+	min-height: 100vh;
+	position: relative;
+	perspective: 1500px;
+}
+.cantina img:nth-child(1){
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	transform: scale(2) translate(-100%, 0);
+	animation: entrance-2 3s linear 4s 1 normal forwards;
+}
+@keyframes entrance-2 {
+	0% {
+		transform: scale(2) translate(-100%, 0);
+	}
+	100% {
+		transform: scale(2) translate(50%, 0);
+	}
+}
+.cantina img:nth-child(2){
+	height: 430px;
+	width: 240px;
+	position: absolute;
+	bottom: 100px;
+	right: 0;
+	transform: scale(2) translate(-50%, 0);
+	animation: entrance-1 3s linear 0s 1 normal forwards;
+}
+@keyframes entrance-1 {
+	0% {
+		transform: scale(2) translate(100%, 0);
+	}
+	100% {
+		transform: scale(2) translate(-30%, 0);
+	}
+}
+.cantina img:nth-child(3),
+.cantina img:nth-child(5){
+	position: absolute;
+	top: 10%;
+	right: 28%;
+	opacity: 0;
+	max-width: 200px;
+}
+.cantina img:nth-child(3){
+	animation: phrase-1 3s ease 3s 1 normal backwards;
+}
+@keyframes phrase-1 {
+	0% {
+		opacity: 0;
+	}
+	80%{
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.cantina img:nth-child(4),
+.cantina img:nth-child(6),
+.cantina img:nth-child(7){
+	position: absolute;
+	top: 18%;
+	left: 28%;
+	opacity: 0;
+	max-width: 200px;
+}
+.cantina img:nth-child(4){
+	animation: phrase-2 4s ease 7s 1 normal backwards;
+}
+@keyframes phrase-2 {
+	0% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.cantina img:nth-child(5){
+	animation: phrase-3 3s ease 11s 1 normal backwards;
+}
+@keyframes phrase-3 {
+	0% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.cantina img:nth-child(6){
+	animation: phrase-4 3s ease 14s 1 normal backwards;
+}
+@keyframes phrase-4 {
+	0% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.cantina img:nth-child(7){
+	animation: phrase-5 3s ease 17s 1 normal backwards;
+}
+@keyframes phrase-5 {
+	0% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.cantina__next-page{
+	position: absolute;
+	bottom: 50%;
+	right: 50%;
+	max-width: 100%;
+	opacity: 0;
+	overflow: hidden;
+	visibility: hidden;
+	animation: button-cantina 3s linear 19s 1 normal forwards;
+}
+@keyframes button-cantina {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+.cantina__button::after{
+	animation: button-bg-cantina 1s linear 21.5s 1 normal forwards;
+}
+@keyframes button-bg-cantina {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(100%, 0);
+	}
+}
+/* ================================Space====================================== */
+.space {
+	background: url(../img/space/hyper.gif) 0 0 / 100% 100% no-repeat;
+	min-height: 100vh;
+	position: relative;
+}
+.millennium-falcon {
+	max-width: 100%;
+	position: absolute;
+	top: 34%;
+	left: 36%;
+	animation: fly 1s linear 0s infinite alternate forwards;
+}
+@keyframes fly {
+	0% {
+		transform: translateX(-0.5%);
+	}
+	100% {
+		transform: translateX(0.5%);
+	}
+}
+.space img:nth-child(2),
+.space img:nth-child(4),
+.space img:nth-child(5){
+	position: absolute;
+	top: 31%;
+	left: 35%;
+	opacity: 0;
+}
+.space img:nth-child(2) {
+	animation: phrase-6 3s ease 1.5s 1 normal backwards;
+}
+@keyframes phrase-6 {
+	0% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.space img:nth-child(3) {
+	position: absolute;
+	top: 24%;
+	right: 31%;
+	animation: phrase-7 3s ease 6s 1 normal backwards;
+	opacity: 0;
+}
+@keyframes phrase-7 {
+	0% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.space img:nth-child(4) {
+	animation: phrase-8 3s ease 9s 1 normal backwards;
+}
+@keyframes phrase-8 {
+	0% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.space img:nth-child(5) {
+	animation: phrase-9 3s ease 12s 1 normal backwards;
+}
+@keyframes phrase-9 {
+	0% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.space__next-page {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	max-width: 100%;
+	transform: translate(-80%, -80%);
+	overflow: hidden;
+	opacity: 0;
+	visibility: hidden;
+	animation: button-space 3s linear 15s 1 normal forwards;
+}
+.space__button::after{
+	animation: button-bg-space 1s linear 17s 1 normal forwards;
+}
+@keyframes button-space {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+@keyframes button-bg-space {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(100%, 0);
+	}
+}
+/* ================================Mission====================================== */
+.mission {
+	background: url(../img/mission/bg.jpg) 0 0 / cover no-repeat;
+	min-height: 100vh;
+	position: relative;
+	perspective: 100px;
+}
+.mission img:nth-child(1) {
+	position: absolute;
+	top: 30%;
+	right: 0;
+	max-width: 150px;
+	opacity: 0;
+	animation: phrase-10 4s ease 0s 1 normal forwards;
+}
+@keyframes phrase-10 {
+	0% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.mission img:nth-child(2) {
+	position: absolute;
+	top: 8%;
+	right: 31%;
+	max-width: 150px;
+	display: block;
+	transform: rotate(7deg);
+	z-index: 1;
+	visibility: hidden;
+	animation: arrival 4s ease 3.5s 1 normal forwards;
+}
+@keyframes arrival {
+	0% {
+		transform: translate(-100%, -100%);
+		visibility: hidden;
+	}
+	100% {
+		transform: translate(8%, 31%);
+		visibility: visible;
+	}
+}
+.mission__shot {
+	perspective: 100px;
+}
+.mission__shot::before {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	right: 43%;
+	height: 5px;
+	width: 50px;
+	background-color: #FFFF50;
+	box-shadow: 3px 1px 16px 7px rgba(204, 204, 64, 1);
+	transform: rotate(220deg) translate3d(-515%, 352%, 10px);
+	border-radius: 50%;
+	opacity: 0;
+	animation: shot-1 0.7s linear 7.5s 1 normal forwards;
+}
+@keyframes shot-1 {
+	0% {
+		transform: rotate(220deg) translate3d(-515%, 352%, 10px);
+		opacity: 1;
+	}
+	99% {
+		transform: rotate(220deg) translate3d(-1100%, -800%, 10px);
+		opacity: 1;
+	}
+	100%{
+		opacity: 0;
+	}
+}
+.mission img:nth-child(4){
+	position: absolute;
+	top: 39%;
+	right: 14%;
+	opacity: 0;
+	animation: blast-1 2s linear 8.2s 1 normal forwards;
+}
+@keyframes blast-1 {
+	0% {
+		opacity: 0;
+	}
+	99%{
+	opacity: 1;
+	}
+	100%{
+		opacity: 0;
+	}
+}
+.mission__shot::after {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	right: 40%;
+	height: 5px;
+	width: 50px;
+	background-color: #FFFF50;
+	box-shadow: 3px 1px 16px 7px rgba(204, 204, 64, 1);
+	transform: rotate(220deg) translate3d(-445%, -7%, 10px);
+	border-radius: 50%;
+	opacity: 0;
+	animation: shot-2 0.7s linear 8s 1 normal forwards;
+}
+@keyframes shot-2 {
+	0% {
+		transform: rotate(220deg) translate3d(-445%, -7%, 10px);
+		opacity: 1;
+	}
+	99% {
+		transform: rotate(220deg) translate3d(-1100%, -310%, 10px);
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.mission img:nth-child(5){
+	max-width: 150px;
+	position: absolute;
+	top: 35%;
+	right: 7%;
+	opacity: 0;
+	animation: blast-2 2s linear 8.6s 1 normal forwards;
+}
+@keyframes blast-2 {
+	0% {
+		opacity: 0;
+	}
+	99% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.mission img:nth-child(6){
+	max-width: 200px;
+	position: absolute;
+	top: 42.5%;
+	right: 9%;
+	opacity: 0;
+	visibility: visible;
+	animation: fire 50s linear 8.4s infinite alternate forwards;
+}
+@keyframes fire {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+.mission img:nth-child(7),
+.mission img:nth-child(8),
+.mission img:nth-child(10),
+.mission img:nth-child(11){
+	max-width: 150px;
+	position: absolute;
+	top: 0%;
+	right: 26%;
+	opacity: 0;
+}
+
+.mission img:nth-child(7){
+	animation: phrase-11 4s linear 9s 1 normal forwards;
+}
+@keyframes phrase-11 {
+	0% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.mission img:nth-child(8){
+	animation: phrase-12 4s linear 13s 1 normal forwards;
+}
+@keyframes phrase-12 {
+	0% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.mission img:nth-child(9){
+	max-width: 150px;
+	position: absolute;
+	top: 0%;
+	right: 37%;
+	opacity: 0;
+	animation: phrase-13 4s linear 17s 1 normal forwards;
+}
+@keyframes phrase-13 {
+	0% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.mission img:nth-child(10){
+	animation: phrase-14 4s linear 21s 1 normal forwards;
+}
+@keyframes phrase-14 {
+	0% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.mission img:nth-child(11){
+	animation: phrase-15 4s linear 25s 1 normal forwards;
+}
+@keyframes phrase-15 {
+	0% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.mission__next-page {
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translate(-20%, 50%);
+	max-width: 100%;
+	overflow: hidden;
+	opacity: 0;
+	visibility: hidden;
+	animation: button-mission 3s linear 26s 1 normal forwards;
+}
+@keyframes button-mission {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+.mission__button::after {
+	animation: button-bg-mission 1s linear 28.5s 1 normal forwards;
+}
+@keyframes button-bg-mission {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(100%, 0);
+	}
+}
